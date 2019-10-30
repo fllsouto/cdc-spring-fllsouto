@@ -20,6 +20,8 @@
 	</properties>
 
 	<dependencies>
+
+		<!--	Spring Boot dependencies	-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -54,19 +56,20 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!--	Jetty server dependencies	-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jetty</artifactId>
-		</dependency>
+		<!--	Jetty server + JSP + JSTL  dependencies	-->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jetty</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>apache-jsp</artifactId>
-			<scope>runtime</scope>
+			<scope>provided</scope>
 		</dependency>
 
 		<!--	Junit dependencies	-->

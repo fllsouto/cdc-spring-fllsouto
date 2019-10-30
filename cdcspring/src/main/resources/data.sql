@@ -1,13 +1,3 @@
-DROP TABLE IF EXISTS Livro;
-
-CREATE TABLE Livro (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(255) NOT NULL,
-    isbn VARCHAR(255) NOT NULL,
-    numero_de_paginas INT NOT NULL,
-    autor VARCHAR(255) NOT NULL
-);
-
 INSERT INTO Livro (titulo, isbn, numero_de_paginas, autor) VALUES
     ('GraphlQL', '978-85-7254-011-7', 143, 'Akira Hanashiro'),
     ('OAuth 2.0', '978-85-94188-12-0', 366, 'Adolfo Eloy'),
