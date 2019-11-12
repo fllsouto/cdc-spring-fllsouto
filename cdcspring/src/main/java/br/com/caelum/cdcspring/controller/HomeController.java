@@ -9,8 +9,6 @@ public class HomeController {
 
     @GetMapping("/")
     public ModelAndView home() {
-        ModelAndView mv  = new ModelAndView("home");
-        System.out.println("Entrei aqui");
-        return mv;
+        return new ModelAndView("home");
     }
 }
