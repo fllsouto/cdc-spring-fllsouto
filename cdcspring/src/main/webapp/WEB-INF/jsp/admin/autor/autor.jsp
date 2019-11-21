@@ -16,6 +16,7 @@
             <h1>Área do autor</h1>
             <ul>
                 <li><a href="/admin/autor/form">Formulário de novo autor</a></li>
+                <li><a href="/admin/autor/autores">Lista de autores</a></li>
             </ul>
 
         </div>
