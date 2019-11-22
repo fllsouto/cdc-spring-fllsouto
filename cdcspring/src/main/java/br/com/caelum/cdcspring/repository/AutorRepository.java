@@ -7,5 +7,7 @@ import java.util.List;
 
 public interface AutorRepository extends Repository<Autor, Long> {
     Autor save(Autor autor);
+    void delete(Autor autor);
     List<Autor> findAll();
+    Autor findById(Long id);
 }

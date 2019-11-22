@@ -7,8 +7,6 @@ import javax.validation.constraints.NotBlank;
 
 public class AutorForm {
 
-    private Long autorId;
-
     @NotBlank(message = "Nome inválido, por favor verifique o valor digitado!")
     private String nome;
 
@@ -16,12 +14,12 @@ public class AutorForm {
     @NotBlank(message = "Email inválido, por favor verifique o valor digitado!")
     private String email;
 
-    public Long getAutorId() {
-        return autorId;
+    public AutorForm() {
     }
 
-    public void setAutorId(Long autorId) {
-        this.autorId = autorId;
+    public AutorForm(Autor autor) {
+        this.nome = autor.getNome();
+        this.email = autor.getEmail();
     }
 
     public String getNome() {
@@ -41,9 +39,7 @@ public class AutorForm {
     }
 
     public Autor toAutor() {
-        Autor autor = new Autor(this.nome, this.email);
-        autor.setId(this.autorId);
-        return autor;
+        return  new Autor(this.nome, this.email);
     }
 
     @Override

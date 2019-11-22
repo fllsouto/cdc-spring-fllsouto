@@ -17,15 +17,16 @@
     <h3>Lista de autores</h3>
     <table class="table table-hover">
         <thead class="thead-dark">
-            <th class="col">Nome</th>cd ..
-            
+            <th class="col">Nome</th>
             <th class="col">Email</th>
+            <th class="col">Gerenciar</th>
         </thead>
         <tbody>
         <c:forEach var="autor" items="${autores}">
             <tr>
                 <td>${autor.nome}</td>
                 <td>${autor.email}</td>
+                <td><a href="/admin/autor/${autor.id}/edit">Editar</a></td>
             </tr>
         </c:forEach>
         </tbody>

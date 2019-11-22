@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -40,6 +41,37 @@ public class AutorController {
         ModelAndView mv = new ModelAndView("admin/autor/form");
         mv.addObject("form", form);
         return mv;
+    }
+
+    @GetMapping("/{id}/edit")
+    public ModelAndView edit(@PathVariable("id") Long id) {
+        Autor autor = autorRepository.findById(id);
+        AutorForm form = new AutorForm(autor);
+
+        ModelAndView mv = new ModelAndView("admin/autor/editForm");
+        mv.addObject("form", form);
+        mv.addObject("autorId", id);
+        return mv;
+    }
+
+    @PostMapping("/{id}/edit")
+    public ModelAndView edit(@PathVariable("id") Long id, @Valid AutorForm form, BindingResult result) {
+        if (result.hasErrors()) return edit(id);
+
+        Autor autor = form.toAutor();
+        autor.setId(id);
+        autorRepository.save(autor);
+
+        return new ModelAndView("redirect:/admin/autor");
+    }
+
+    @PostMapping("/{id}/remove")
+    public ModelAndView remove(@PathVariable("id") Long id) {
+        Autor autor = autorRepository.findById(id);
+
+        autorRepository.delete(autor);
+
+        return new ModelAndView("redirect:/admin/autor");
     }
 
     @PostMapping("/form")
