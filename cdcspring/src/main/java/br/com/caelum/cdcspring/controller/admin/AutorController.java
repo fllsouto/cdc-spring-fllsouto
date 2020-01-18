@@ -39,18 +39,18 @@ public class AutorController {
     @GetMapping("/form")
     public ModelAndView form(AutorForm form) {
         ModelAndView mv = new ModelAndView("admin/autor/form");
-        mv.addObject("form", form);
+        //mv.addObject("form", form);
         return mv;
     }
 
     @GetMapping("/{id}/edit")
-    public ModelAndView edit(@PathVariable("id") Long id) {
+    public ModelAndView edit(@PathVariable("id") Long id, AutorForm form) {
         Autor autor = autorRepository.findById(id);
-        AutorForm form = new AutorForm(autor);
-
+        //AutorForm form = new AutorForm(autor);
+        // preenchendo o form com as infos do usuário vai fazer com que eu perca o que foi preenchido
         ModelAndView mv = new ModelAndView("admin/autor/editForm");
         mv.addObject("form", form);
-        mv.addObject("autorId", id);
+        mv.addObject("autorId", id); // mesma coisa do comentário 1
         return mv;
     }
 
